@@ -11,7 +11,8 @@
     <script>
 	
       window.onload = function(){
-        document.getElementById("stop").style.display="none";
+		document.getElementById("stop").style.display="none";
+		window.ethereum.enable();
       }
 	</script>
 <link rel="stylesheet" href="styles/loader.css">
@@ -84,12 +85,16 @@
 		if(typeof web3!='undefined'){
 				web3=new Web3(web3.currentProvider);
 		}else{
-				web3=new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+				web3=new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
 		}
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gst = web3.eth.contract(ABI);
 		var reg = gst.at(address);
-		reg.addBusiness(accno,gstin,name,aadhar,phone,pass,bal,{gas:3000000});
+		reg.addBusiness(accno,gstin,name,aadhar,phone,pass,bal,{gas:3000000},(err,result)=>{
+			if(!err){
+				print(result);
+			}
+		});
 		M.toast({html: 'User Created', classes: 'rounded black'});
 		window.location.href = 'login.html';
 	}
