@@ -8,6 +8,7 @@
 		<script>
 			window.onload = function () {
 				document.getElementById("stop").style.display = "none";
+				window.ethereum.enable();
 			};
 		</script>
 		<link rel="stylesheet" href="styles/loader.css" />
@@ -30,9 +31,7 @@
 	</head>
 
 	<script>
-		window.onload = function() {
-			window.ethereum.enable();
-		}
+		
 		function Login() {
 			var uname = document.getElementById("uname").value.toString();
 			var word = document.getElementById("Password").value;
