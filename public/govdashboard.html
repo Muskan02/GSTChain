@@ -8,6 +8,7 @@
     <script>
       window.onload = function(){
         document.getElementById("stop").style.display="none";
+        window.ethereum.enable();
         if(typeof web3!='undefined'){
         web3=new Web3(web3.currentProvider);
     }else{

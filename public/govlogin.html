@@ -30,6 +30,9 @@
 	</head>
 
 	<script>
+		window.onload = function() {
+			window.ethereum.enable();
+		}
 		function Login() {
 			var uname = document.getElementById("uname").value.toString();
 			var word = document.getElementById("Password").value;
