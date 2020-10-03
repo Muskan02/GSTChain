@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="styles/loader.css" />
+		<script src="scripts/cred.js"></script>
+		<script src="scripts/web3.min.js"></script>
+		<link rel='icon' href='images/pwa-192x192.ico'>
+		<script>
+			window.onload = function () {
+				document.getElementById("stop").style.display = "none";
+			};
+		</script>
+		<link rel="stylesheet" href="styles/loader.css" />
+		<title>Government Login</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="styles/index.css" />
+		<link rel="stylesheet" type="text/css" href="styles/style.css" />
+	</head>
+
+	<script>
+		
+	</script>
+	<body>
+		<div class="pageloader" id="stop">
+			<div class="sk-chase">
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+			</div>
+		</div>
+		<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="images/pwa-192x192.png" height='30px' width='30px' alt="GST logo"><span style="float: left;">GST System</span></a> 
+  </nav> -->
+		<nav class="navbar-fixed">
+			<div class="nav-wrapper">
+				<a href="index.html" class="brand-logo"
+					><img
+						src="images/pwa-192x192.png"
+						height="60px"
+						width="90px"
+						alt="GST logo"
+					/>GST System</a
+				>
+			</div>
+		</nav>
+		<div class="container">
+			<img src="images/bg.png" width="25%" height="50%" class="image" />
+
+			<!-- start Login form -->
+			<form action="">
+				<h2>Government Login</h2>
+				<label for="uname">Username</label>
+				<input
+					type="text"
+					name="uname"
+					id="uname"
+					style="color: #fff;"
+					required
+				/>
+				<label for="Password">Password</label>
+				<input
+					type="password"
+					name="Password"
+					id="Password"
+					style="color: #fff;"
+					required
+				/>
+				<input
+					type="button"
+					value="Login"
+					onclick="Login()"
+					style="background-color: #ffef5e;"
+				/>
+			</form>
+			<!-- end login form -->
+		</div>
+	</body>
+</html>
