@@ -8,7 +8,12 @@
 	  <!-- Compiled and minified JavaScript -->
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script src="scripts/cred.js"></script>
-
+    <script>
+	
+      window.onload = function(){
+        document.getElementById("stop").style.display="none";
+      }
+	</script>
 <link rel="stylesheet" href="styles/loader.css">
 <script src="scripts/web3.min.js"></script>
 <script>
@@ -79,10 +84,9 @@
 		if(typeof web3!='undefined'){
 				web3=new Web3(web3.currentProvider);
 		}else{
-				web3=new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
+				web3=new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
 		}
 		web3.eth.defaultAccount=web3.eth.accounts[0];
-		web3.eth.getAccounts().then(console.log);
 		var gst = web3.eth.contract(ABI);
 		var reg = gst.at(address);
 		reg.addBusiness(accno,gstin,name,aadhar,phone,pass,bal,{gas:3000000});
