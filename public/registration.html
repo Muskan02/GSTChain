@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles/loader.css">
+	<link rel='icon' href='images/pwa-192x192.ico'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	  <!-- Compiled and minified JavaScript -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="scripts/cred.js"></script>
+
+<link rel="stylesheet" href="styles/loader.css">
+<script src="scripts/web3.min.js"></script>
+<script>
+	function namecheck(name){
+		if(name.match(/^[a-zA-Z() ]+$/))
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	function register() {
+		var flag=0;
+		accno = document.getElementById('accno').value;
+		gstin = document.getElementById("GSTIN").value.toString();
+		name = document.getElementById("Business").value;
+		aadhar =document.getElementById("Aadhar").value.toString();
+		phone = document.getElementById("Phone").value.toString();
+		pass = document.getElementById("Password").value;
+		con  = document.getElementById("Confirm").value;
+		bal = document.getElementById('balance').value;
+		if(isNaN(gstin))
+		{
+			M.toast({html: 'GST number must be in digits', classes: 'rounded black'});
+			flag=1;
+		}
+		else if(gstin.length!=10)
+		{
+			M.toast({html: 'GST number must be 10 character long', classes: 'rounded black'});
+			flag=1;
+		}
+		if(namecheck(name)==false)
+		{	
+			M.toast({html: 'Name must be string', classes: 'rounded black'});
+			flag=1;
+		}
+		if(isNaN(aadhar))
+		{
+			M.toast({html: 'Aadhar number must be in digits', classes: 'rounded black'});
+			flag=1;
+		}
+		else if(aadhar.length!=12)
+		{
+			M.toast({html: 'Aadhar number must be 12 character long', classes: 'rounded black'});
+			flag=1;
+		}
+		if(isNaN(phone))
+		{
+			M.toast({html: 'Phone number must be in digits', classes: 'rounded black'});
+			flag=1;
+		}
+		else if(phone.length!=10)
+		{
+			M.toast({html: 'Phone number must be 10 character long', classes: 'rounded black'});
+			flag=1;
+		}
+		if(pass.length<8)
+		{
+			M.toast({html: 'Password must be at least 8 character long', classes: 'rounded black'});
+			flag=1;
+		}
+		else if(pass!=con){
+			M.toast({html: 'Confirm password not matched', classes: 'rounded black'});
+			flag=1;
+		}
+		if(flag==0){
+		if(typeof web3!='undefined'){
+				web3=new Web3(web3.currentProvider);
+		}else{
+				web3=new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
+		}
+		web3.eth.defaultAccount=web3.eth.accounts[0];
+		web3.eth.getAccounts().then(console.log);
+		var gst = web3.eth.contract(ABI);
+		var reg = gst.at(address);
+		reg.addBusiness(accno,gstin,name,aadhar,phone,pass,bal,{gas:3000000});
+		M.toast({html: 'User Created', classes: 'rounded black'});
+		window.location.href = 'login.html';
+	}
+}
+</script>
+	<title>Registration</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+	<div class="pageloader" id="stop">
+		<div class="sk-chase">
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		</div>
+	  </div>
+	  <nav class="navbar-fixed">
+            <div class="nav-wrapper">
+              <a href="index.html" class="brand-logo"><img src="images/pwa-192x192.png" height='60px' width='90px' alt="GST logo">GST System</a>
+            </div>
+          </nav>
+    <!-- start register -->
+    <div class="container" style="margin-top: 100px;">
+    <form action="">
+		<h2>Registration</h2>
+		<label for="accno">Account Number</label>
+	    <input type="text" name="accno" id="accno" style="color: #fff;">
+	    <label for="GSTIN">GSTIN</label>
+	    <input type="text" name="GSTIN" id="GSTIN" style="color: #fff;">
+	    <label for="Business Name">Business Name</label>
+	    <input type="text" name="Business Name" id="Business" style="color: #fff;">
+	    <label for="Aadhar Number">Aadhar Number</label>
+	    <input type="text" name="Aadhar Number" id="Aadhar" style="color: #fff;">
+	    <label for="Phone Number">Phone Number</label>
+		<input type="text" name="Phone Number" id="Phone" style="color: #fff;">
+		<label for="amount">Enter Balance</label>
+	    <input type="text" name="balance" id="balance" style="color: #fff;">
+	    <label for="Password">Password</label>
+	    <input type="password" name="Password" id="Password" style="color: #fff;">
+		<label for="Confirm Password">Confirm Password</label>
+		
+		<input type="password" name="Confirm Password" id="Confirm" style="color: #fff;">
+	    <input type="button" value="Register" style="background-color: #FFEF5E;" onclick="register()">
+     </form>
+     </div>
+     <!-- end register -->
+
+</body>
+</html>
