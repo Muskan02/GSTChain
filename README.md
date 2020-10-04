@@ -32,14 +32,14 @@ In a report of Financial Express it is found that the central GST authorities ha
 
 # Technologies Used
 <ol>
-<li> Ehtereum Blockchain
+<li> Ethereum Blockchain
 <li> Solidity
 <li> Matic Mumbai Test Network
 <li> HTML
  <li> CSS
  <li> JavaScript
  <li> Web3.js
- <li> Progrressive Web App
+ <li> Progressive Web App
  </ol>
 
 ## Team Members
