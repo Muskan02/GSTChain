@@ -22,7 +22,7 @@ This system works between government and business.
 <li> Copy the code from <b>contracts/gst-system.sol</b> and paste it on Remix IDE and compile using version <b> 0.4.22 </b> compiler</li>
 <li> Use the Injected Web3 for deploying and select Matic Mumbai Test server.</li>
 <li> Copy the contract address from <b> scripts/cred.js </b> and deploy the contract using that address. </li>
-<li> After that, run the application at deployed [site](https://gstchain.web.app).</li>
+<li> After that, run the application at <a href="https://gstchain.web.app">deployed site</a>.</li>
 <li> At first load meta mask pop Up will come and it will connect the site with the meta mask extension. Press the accept button </li>
 <li> Before doing any work make sure that your account have sufficient balance to pay fees </li>
 <li> To login as government user username - "admin " and password = "123456"</li>
