@@ -2,6 +2,10 @@
 
 In a report of Financial Express it is found that the central GST authorities have detected evasion of Rs 70,206 crore between July 1, 2017 launch of GST and January, 2020. So our project aims to solve this problem using a decentralised blockchain system.
 
+## Deployed Site - <a href="https://gstchain.web.app">https://gstchain.web.app</a>
+
+## Youtube Video Link - <a href="https://youtu.be/WkeIelvqu0A">https://youtu.be/WkeIelvqu0A</a>
+
 # How to setup and run the Dapp
 <ol>
 <li> Copy the code from <b>contracts/gst-system.sol</b> and paste it on Remix IDE and compile using version <b> 0.4.22 </b> compiler</li>
@@ -17,12 +21,26 @@ In a report of Financial Express it is found that the central GST authorities ha
  
 </ol>
 
+
+
 # Functions provided
 1. Various Businesses can register themselves using GST Number.
 2. Business can generate bills for customers using customer's Aadhar Number.
 3. Business can see the previous transaction details and total GST paid.
 4. Business can search for a particular bill using Bill Number.
 5. Government can see the details of all businesses registered and keep an eye on the GST paid by them.
+
+# Technologies Used
+<ol>
+<li> Ehtereum Blockchain
+<li> Solidity
+<li> Matic Mumbai Test Network
+<li> HTML
+ <li> CSS
+ <li> JavaScript
+ <li> Web3.js
+ <li> Progrressive Web App
+ </ol>
 
 ## Team Members
 - [Muskan Maheshwari](https://github.com/Muskan02)
